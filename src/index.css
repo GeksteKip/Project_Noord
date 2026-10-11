@@ -1,0 +1,178 @@
+* {
+    box-sizing: border-box;
+    color: white;
+}
+
+/* VARIABLES */
+:root {
+    --button-op: .5;
+    --purple-light-rgb: 94 84 206; 
+    --purple-dark-rgb: 47 43 104; 
+    --gradient-purple: linear-gradient(
+    to right,
+    rgb(var(--purple-light-rgb) / 0.4) 0%,
+    rgb(var(--purple-dark-rgb) / 0.4) 25%,
+    rgb(var(--purple-dark-rgb) / 0.4) 75%,
+    rgb(var(--purple-light-rgb) / 0.4) 100%
+    );--gradient-purple-highlight: linear-gradient(
+    to right,
+    rgb(var(--purple-light-rgb) / var(--button-op)) 0%,
+    rgb(var(--purple-dark-rgb) / var(--button-op)) 25%,
+    rgb(var(--purple-dark-rgb) / var(--button-op)) 75%,
+    rgb(var(--purple-light-rgb) / var(--button-op)) 100%
+    );
+    --green-light-rgb: 71 160 133;
+    --green-dark-rgb: 39 94 77;
+    --gradient-green: linear-gradient(
+    to right,
+    rgb(var(--green-light-rgb) / 0.4) 0%,
+    rgb(var(--green-dark-rgb) / 0.4) 25%,
+    rgb(var(--green-dark-rgb) / 0.4) 75%,
+    rgb(var(--green-light-rgb) / 0.4) 100%
+    );
+    --gradient-green-highlight: linear-gradient(
+    to right,
+    rgb(var(--green-light-rgb) / var(--button-op)) 0%,
+    rgb(var(--green-dark-rgb) / var(--button-op)) 25%,
+    rgb(var(--green-dark-rgb) / var(--button-op)) 75%,
+    rgb(var(--green-light-rgb) / var(--button-op)) 100%
+    );
+    --font-exo: 'Exo 2', Arial, sans-serif;
+}
+body {
+    background: black;
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+}
+.intro_main_frame {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.event_video {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60vw;
+    aspect-ratio: 1.33;
+    z-index: 1;
+    object-fit: cover;
+}
+.event_button {
+    border: solid 1px rgba(0 0 0 / .1);
+    font-size: 1.5em;
+    width: fit-content;
+    height: fit-content;
+    background: var(--gradient-green);
+    padding: 24px 32px;
+    font-family: var(--font-exo);
+}
+.event_button:hover {
+    background: var(--gradient-green-highlight);
+}
+.cta_button {
+    border: solid 1px rgba(0 0 0 / .1);
+    font-size: 1.5em;
+    width: fit-content;
+    height: fit-content;
+    background: var(--gradient-purple);
+    padding: 24px 32px;
+    font-family: var(--font-exo);
+}
+.cta_button:hover {
+    background: var(--gradient-purple-highlight);
+}
+.intro_main_content {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60vw;
+    aspect-ratio: 1.33;
+    z-index: 2;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: 64px;
+    opacity: 1;
+}
+.header_top {
+    opacity: 0;
+}
+.header_top_right {
+    padding: 12px 32px;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--gradient-purple);
+}
+.header_top_right p {
+    font-family: var(--font-exo);
+    font-size: 16px;
+}
+.header_bot {
+    width: 100%;
+    height: fit-content;
+    padding: 24px;
+    display: flex;
+    align-items: bottom;
+    justify-content: space-between;
+    transition: opacity 0.15s cubic-bezier(0.4, 0, 0.2, 1), 
+                transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.header_bot p {
+    font-size: 0.8em;
+    height: 50%;
+    padding-inline: 8px;
+}
+.launch_cta {
+    background: var(--gradient-green);
+    margin-top: auto;
+    display: flex;
+    align-items: bottom;
+    justify-content: bottom;
+}
+
+/* After Portal Design */
+
+
+.portal_background {
+    height: 100vh;
+    width: 100vw;
+    animation: warpFadeIn 1s ease-out forwards; 
+    background-image: url('/space.jpg');
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 0;
+}
+.portal_background::before {
+    opacity: .6;
+}
+.portal_background {
+    font-size: 4em;
+}
+.cta_container {
+    display: flex;
+    width: 100%;
+    height: 80px;
+    align-items: center;
+    justify-content: space-around;
+}
+
+@keyframes warpFadeIn {
+    from {
+    opacity: 0;
+}
+    to {
+    opacity: .6;
+}
+}
+
